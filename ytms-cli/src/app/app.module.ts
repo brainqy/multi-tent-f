@@ -30,6 +30,8 @@ import { MnHomeComponent } from './Component/Manager/mn-home/mn-home.component';
 import { MnSidebarComponent } from './Component/Manager/mn-sidebar/mn-sidebar.component';
 import { MnHeaderComponent } from './Component/Manager/mn-header/mn-header.component';
 import { MyOrgComponent } from './Component/my-org/my-org.component';
+import { ReferralsComponent } from './Component/referrals/referrals.component';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -52,6 +54,7 @@ import { MyOrgComponent } from './Component/my-org/my-org.component';
     MnSidebarComponent,
     MnHeaderComponent,
     MyOrgComponent,
+    ReferralsComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +73,7 @@ import { MyOrgComponent } from './Component/my-org/my-org.component';
   ],
   providers: [
     authInterceptorProviders,
+    DatePipe,
     {
       provide: MAT_DATE_LOCALE,
       useValue: 'en-GB',

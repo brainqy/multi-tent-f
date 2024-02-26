@@ -113,46 +113,7 @@ getSecondaryTextColor(event :CalendarEvent):string{
   return event?.color?.secondaryText|| '#1e90ff';
 }
 events: CalendarEvent[] = [];
- /*  events: CalendarEvent[] = [
-     {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: { ...colors['red'] },
-      actions: this.actions,
-      allDay: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: { ...colors['yellow'] },
-      actions: this.actions,
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: { ...colors['blue'] },
-      allDay: true,
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: addHours(new Date(), 2),
-      title: 'A draggable and resizable event',
-      color: { ...colors['yellow'] },
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    }, 
-  ]; */
+
 
   activeDayIsOpen: boolean = true;
 
@@ -237,22 +198,6 @@ this.searchTerms.pipe(
     this.modal.open(this.modalContent, { size: 'lg' });
   }
 
-/*   addEvent(): void {
-    this.events = [
-      ...this.events,
-      {
-        title: 'New event',
-        start: startOfDay(new Date()),
-        end: endOfDay(new Date()),
-        color: colors['red'],
-        draggable: true,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true,
-        },
-      },
-    ];
-  } */
  updateEvent(editedEvent:any){
  
   this.calendarService.updateEvent(editedEvent.eventId,editedEvent).subscribe((res)=>{
@@ -328,35 +273,6 @@ formatDate(date: string): string {
       (error) => {
         console.error('Error fetching events:', error);
       }
-    
-     
-      /* (res)=>{
-        console.log("response in search events by Trainer  :",res);
-        if(res.data=='Nil'){
-          Swal.fire('info','No Events found for this Trainer','info');
-          this.events=[];
-        } else{
-          const eventsWithoutScheduleUser=res.data.map((event:any)=>{
-       const {scheduleUser, title,color, ...rest}=event;
-        return {
-          title,
-          start: new Date(event.start[0], event.start[1] - 1, event.start[2], event.start[3], event.start[4]),
-            end: new Date(event.end[0], event.end[1] - 1, event.end[2], event.end[3], event.end[4]),
-          color,
-          draggable:true,
-          resizable:{beforeStart:true,afterEnd:true},
-          ...rest
-        }
-
-          });
-          this.events=eventsWithoutScheduleUser;
-          console.log("this.events eventsWithoutScheduleUser",this.events);
-          console.log("this.events :::",this.events);
-        }
-       
-      },(error)=>{
-        console.error('Error searching events ',error);
-      } */
     )
   }
 

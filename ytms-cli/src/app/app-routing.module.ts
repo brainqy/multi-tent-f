@@ -13,6 +13,7 @@ import {CalenderComponent} from './Component/calender/calender.component';
 import { MnHomeComponent } from './Component/Manager/mn-home/mn-home.component';
 import { MnGuard } from './Core/guard/mn.guard';
 import { MyOrgComponent } from './Component/my-org/my-org.component';
+import { ReferralsComponent } from './Component/referrals/referrals.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,9 @@ const routes: Routes = [
   {
     path:"change-password",
     component:ChangePasswordComponent},
+    {
+      path:"referrals",
+      component:ReferralsComponent},
   {
     path: '**',
     component: LoginComponent

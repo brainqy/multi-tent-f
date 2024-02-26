@@ -1,0 +1,37 @@
+<section class="vh-100">
+    <div class="topnav">
+        <a href="#" class="ytms-logo">
+            <img src="../../../assets/img/YTMS_LOGO 1.png" >
+        </a>
+    </div>
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <h2>Referrals Works</h2>
+            <!-- Share this link and earn 50 Coins -->
+            <a (click)="copyToClipboard()">Share it now</a>
+
+            <!-- Table to display referred people -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Date Referred</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Iterate over referred people and populate table rows -->
+                    <tr *ngFor="let referral of referredPeople">
+                        
+                        <td>{{ referral.email }}</td>
+                        <td>{{ referral.status }}</td>
+                        <td>{{ referral.referredAt }}</td>
+                        <td>
+                            <button *ngIf="referral.status === 'pending'" (click)="resendEmail(referral)">Resend Email</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

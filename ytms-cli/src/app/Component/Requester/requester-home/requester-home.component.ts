@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {AuthService} from "../../../Core/services/auth.service";
 import {JwtService} from "../../../Core/services/jwt.service";
 import {Router} from "@angular/router";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-requester-home',
@@ -16,7 +17,8 @@ export class RequesterHomeComponent {
 
   constructor(public authService: AuthService,
               private jwtService: JwtService,
-              private router: Router) {
+              private router: Router,
+              private translate: TranslateService) {
 
   }
 

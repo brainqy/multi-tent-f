@@ -78,6 +78,14 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "ytms-cli:build"
+          },
+          "configurations": {
+            "en": {
+              "outputPath": "src/locale/en"
+            },
+            "hi": {
+              "outputPath": "src/locale/hi"
+            }
           }
         },
         "test": {

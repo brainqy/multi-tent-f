@@ -1,6 +1,5 @@
-import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
+import { NgModule, LOCALE_ID } from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {RequesterHeaderComponent} from './Component/Requester/requester-header/requester-header.component';
@@ -13,7 +12,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
 import {authInterceptorProviders} from "./Core/interceptor/auth.interceptor";
 import {MAT_DATE_LOCALE} from "@angular/material/core";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TmHomeComponent} from './Component/Technical-Manager/tm-home/tm-home.component';
 import {TmHeaderComponent} from './Component/Technical-Manager/tm-header/tm-header.component';
 import {TmSidebarComponent} from './Component/Technical-Manager/tm-sidebar/tm-sidebar.component';
@@ -32,6 +31,14 @@ import { MnHeaderComponent } from './Component/Manager/mn-header/mn-header.compo
 import { MyOrgComponent } from './Component/my-org/my-org.component';
 import { ReferralsComponent } from './Component/referrals/referrals.component';
 import { DatePipe } from '@angular/common';
+import { registerLocaleData } from '@angular/common'; // Added import for locale data
+import { LanguageService } from './Core/services/language.service';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 
 
 @NgModule({
@@ -62,6 +69,13 @@ import { DatePipe } from '@angular/common';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     ToastrModule.forRoot(),
     CalendarModule.forRoot({
       provide: DateAdapter,

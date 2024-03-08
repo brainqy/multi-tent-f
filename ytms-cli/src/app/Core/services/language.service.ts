@@ -21,4 +21,12 @@ export class LanguageService {
   getSelectedLanguage(): string {
     return localStorage.getItem('selectedLanguage') || 'en';
   }
+  setDefaultLanguage() {
+    const selectedLanguage = localStorage.getItem('selectedLanguage');
+    if (selectedLanguage) {
+      this.translate.setDefaultLang(selectedLanguage);
+    } else {
+      this.translate.setDefaultLang('en'); // Default to English if not set
+    }
+  }
 }

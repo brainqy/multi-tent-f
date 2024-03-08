@@ -1,26 +1,29 @@
-<section class="vh-100">
-  <div class="topnav">
-  <a href="#" class="ytms-logo">
+<div class="container-fluid g-0">
+  <app-requester-header (sideNavToggled)="sideNavStatus=$event;">
+  </app-requester-header>
 
-    <img src="../../../assets/img/YTMS_LOGO 1.png" ></a>
-
-  
-  </div>
-  <div class="container-fluid h-custom">
-  <div class="row d-flex justify-content-center align-items-center h-100">
+  <main>
+    <app-requester-sidebar [ngClass]="{'app-side-nav-open':sideNavStatus}" [sideNavStatus]="sideNavStatus"
+                           class="black-border"></app-requester-sidebar>
+    <div [ngClass]="{'display-area-shrink':sideNavStatus}" class="display-area p-3">
  
 <!-- Add the dropdown for trainer selection -->
 <div class="calendar-container">
 
   <div class="search-box">
+    <div  *ngIF="allTrainers">
     <label for="trainerSelect">Select Trainer:</label>
     <select id="trainerSelect" [(ngModel)]="selectedTrainer">
       <option value="0">Select</option>
       <option *ngFor="let trainer of allTrainers" [value]="trainer.emailAdd">{{ trainer.fullName }}</option>
     </select>
     <button (click)="searchEventsByTrainer(selectedTrainer)">Search</button>
-  </div>
-<div class="row text-center">
+    </div>
+    <button class="btn btn-primary add-event-btn" (click)="openModal(newEventModal)">Add new Event</button>
+    <button class="btn btn-primary add-event-btn" (click)="openModal(newInterviewModal)">Add Interview Schedule</button>
+
+  </div> 
+ <div class="row text-center">
     <div class="col-md-4">
       <div class="btn-group">
         <div
@@ -185,7 +188,7 @@
       </button>
     </div>
   </ng-template>
-  <button class="btn btn-primary" (click)="openModal(newEventModal)">Add new Event</button>
+ 
   <!-- Add the modal template at the end of your HTML -->
 <!-- Add the modal template at the end of your HTML -->
 <ng-template #newEventModal let-modal>
@@ -255,12 +258,6 @@
           <input type="color" id="primaryColor" name="primaryColor" ngModel class="form-control">
         </div>
    
-        <!-- Secondary Color -->
-        <div class="form-group">
-          <label for="secondaryColor">Secondary Color:</label>
-          <input type="color" id="secondaryColor" name="secondaryColor" ngModel class="form-control">
-        </div>
-   
         <button type="submit" class="btn btn-primary" [disabled]="newEventForm.invalid">Add Event</button>
       </form>
     </div>
@@ -295,6 +292,76 @@
       </form>
     </div>
   </ng-template>
+  <ng-template #newInterviewModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Add New Interview</h4>
+      <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!-- Your form to collect new interview details -->
+      <form #newInterviewForm="ngForm" (ngSubmit)="addInterviewSchedule(newInterviewForm.value)">
+        <!-- Title -->
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" ngModel required class="form-control">
+        </div>
+  
+        <!-- Organizer Name -->
+        <div class="form-group">
+          <label for="organizerName">Organizer Name:</label>
+          <input type="text" id="organizerName" name="organizerName" ngModel required class="form-control">
+        </div>
+  
+        <!-- Organizer Email -->
+        <div class="form-group">
+          <label for="organizerEmail">Organizer Email:</label>
+          <input type="email" id="organizerEmail" name="organizerEmail" ngModel required class="form-control">
+        </div>
+  
+        <!-- Attendees -->
+        <div class="form-group">
+          <label for="attendees">Attendees:</label>
+          <input type="text" id="attendees" name="attendees" ngModel required class="form-control">
+        </div>
+  
+        <!-- Description -->
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <input type="text" id="description" name="description" ngModel required class="form-control">
+        </div>
+  
+        <!-- Location -->
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" ngModel required class="form-control">
+        </div>
+  
+        <!-- Start Date and Time -->
+        <div class="form-group">
+          <label for="startTime">Start Date and Time:</label>
+          <input type="datetime-local" id="startTime" name="startTime" ngModel required class="form-control">
+        </div>
+  
+        <!-- End Date and Time -->
+        <div class="form-group">
+          <label for="endTime">End Date and Time:</label>
+          <input type="datetime-local" id="endTime" name="endTime" ngModel required class="form-control">
+        </div>
+  
+        <!-- Primary Color -->
+        <div class="form-group">
+          <label for="primaryColor">Primary Color:</label>
+          <input type="color" id="primaryColor" name="primaryColor" ngModel class="form-control">
+        </div>
+  
+        <button type="submit" class="btn btn-primary" [disabled]="newInterviewForm.invalid">Add Interview</button>
+      </form>
+    </div>
+  </ng-template>
+  
 
 </div>
-  </div></div></section>
+    </div>
+  </main></div>

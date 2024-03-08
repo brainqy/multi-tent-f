@@ -1,10 +1,6 @@
-<p>my-org works!</p>
 
-
-<a href="#">Create Your own Organization</a>
-<input type="text" [(ngModel)]="prompt" placeholder="Enter your prompt">
-<button (click)="chat(prompt)">Chat</button>
-<button (click)="openOrgModal(newOrgModal)"> Create Organization</button>
+<div class="container">
+<button class="bottom-left-button" (click)="openOrgModal(newOrgModal)"> Create Organization</button>
 
 <div *ngIf="response">
   <p>{{ response }}</p>
@@ -58,6 +54,4 @@
     </div>
   </ng-template>
 
-
-
-
+</div>

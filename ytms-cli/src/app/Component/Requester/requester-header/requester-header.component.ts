@@ -35,14 +35,11 @@ export class RequesterHeaderComponent {
       this.username = this.jwtService.getFullNameFromToken(token);
     }
   this.selectedLanguage = localStorage.getItem('selectedLanguage');
-    if (this.selectedLanguage) {
-      this.translate.setDefaultLang(this.selectedLanguage);
-    } else {
-      this.translate.setDefaultLang('en'); // Default to English if not set
-    }
+    this.languageService.setDefaultLanguage();
   }
 
   sideNavToggle() {
+    console.log("side nav is working");
     this.menuStatus = !this.menuStatus;
     this.sideNavToggled.emit(this.menuStatus);
   }

@@ -50,8 +50,17 @@ height: 100%;
   .calendar-container{
     padding-top: 10px;
   }
-  .search-box{
-    padding-top: 10px;
-    padding-bottom: 10px;
+  .search-box {
+    display: flex;
+    align-items: center; /* Vertically center the items */
   }
-
+  
+  .search-box select,
+  .search-box button {
+    margin-right: 10px; /* Add space between the select and button */
+  }
+  
+  .add-event-btn {
+    margin-left: auto; /* Push the button to the right */
+    padding-bottom: 10px;
+  }  

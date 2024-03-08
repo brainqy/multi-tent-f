@@ -1,0 +1,31 @@
+<div class="container-fluid g-0">
+  <app-requester-header (sideNavToggled)="sideNavStatus=$event;">
+  </app-requester-header>
+
+  <main>
+    <app-requester-sidebar [ngClass]="{'app-side-nav-open':sideNavStatus}" [sideNavStatus]="sideNavStatus"
+                           class="black-border"></app-requester-sidebar>
+    <div [ngClass]="{'display-area-shrink':sideNavStatus}" class="display-area p-3">
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Transaction Date</th>
+        <th>Source</th>
+        <th>User</th>
+        <th>Transaction Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <td>{{ transaction.amount }}</td>
+        <td>{{ formatDate(transaction.createdDate) }}</td>
+        <td>{{ transaction.source || 'N/A' }}</td>
+        <td>{{ transaction.user.fullName }}</td>
+        <td>{{ transaction.transactionType }}</td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+    </main>
+</div>

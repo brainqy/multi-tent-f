@@ -23,33 +23,21 @@ export class RequesterSidebarComponent {
     },
     {
       number: 3,
-      name: 'Products',
+      name: 'Schedule meeting',
       icon: 'fa-solid fa-box',
-      link:''
-    },
-    {
-      number: 4,
-      name: 'Order  ',
-      icon: 'fa-solid fa-cart-shopping',
-      link:''
-    },
-    {
-      number: 5,
-      name: 'Settings',
-      icon: 'fa-solid fa-gear',
-      link:''
+      link:'book-calendar'
     },
     {
       number: 6,
-      name: 'About',
+      name: 'Reports',
       icon: 'fa-solid fa-circle-info',
-      link:''
+      link:'/reports'
     },
     {
       number: 7,
-      name: 'Contact',
+      name: 'Create org',
       icon: 'fa-solid fa-phone',
-      link:''
+      link:'/my-org'
     },
     {
       number: 7,

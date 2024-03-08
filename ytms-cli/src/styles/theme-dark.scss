@@ -1,4 +1,8 @@
-/* angular-cli file: src/styles.css */
+  :root {
+    --primary-color: #343a40;
+    --secondary-color: #adb5bd;
+  }
+  /* angular-cli file: src/styles.css */
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 body {
   font-family: 'Poppins', sans-serif;
@@ -78,5 +82,5 @@ nav {
 
 .navbar-custom
 {
-  background-color:  #005ba3;
+  background-color:  #d2a922;
 }

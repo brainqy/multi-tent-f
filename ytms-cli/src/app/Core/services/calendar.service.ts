@@ -10,6 +10,7 @@ import { CalendarEvent } from 'angular-calendar';
 })
 export class CalendarService {
   baseurl: string = environment.baseUrl + environment.contextUrl + '/calendar/events';
+  interviewurl: string= environment.baseUrl+environment.contextUrl+ '/interview';
  
   constructor(private modal: NgbModal, private http: HttpClient) {}
  
@@ -20,6 +21,11 @@ export class CalendarService {
     };
 return this.http.post<any>(this.baseurl+"/create", event, httpOptions);
   }
+  scheduleInterview(requestData: any): Observable<any> {
+    console.log("requestData ",requestData);
+    return this.http.post<any>(`${this.interviewurl}/generate-ics`, requestData);
+  }
+  
  
   public getAllEvents(): Observable<any> {
     return this.http.get<any>(this.baseurl+'/get/all');

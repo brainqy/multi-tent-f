@@ -35,6 +35,9 @@ import { registerLocaleData } from '@angular/common'; // Added import for locale
 import { LanguageService } from './Core/services/language.service';
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TransactionsComponent } from './Component/transactions/transactions.component';
+import { SettingComponent } from './Component/setting/setting.component';
+import { ReportsComponent } from './Component/reports/reports.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -62,6 +65,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     MnHeaderComponent,
     MyOrgComponent,
     ReferralsComponent,
+    TransactionsComponent,
+    SettingComponent,
+    ReportsComponent,
   ],
   imports: [
     BrowserModule,

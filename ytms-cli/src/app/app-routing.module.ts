@@ -14,6 +14,9 @@ import { MnHomeComponent } from './Component/Manager/mn-home/mn-home.component';
 import { MnGuard } from './Core/guard/mn.guard';
 import { MyOrgComponent } from './Component/my-org/my-org.component';
 import { ReferralsComponent } from './Component/referrals/referrals.component';
+import { TransactionsComponent } from './Component/transactions/transactions.component';
+import { SettingComponent } from './Component/setting/setting.component';
+import { ReportsComponent } from './Component/reports/reports.component';
 
 const routes: Routes = [
   {
@@ -50,6 +53,16 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: "setting",
+    component: SettingComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "reports",
+    component: ReportsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: "mn-home",
     component: MnHomeComponent,
     canActivate: [MnGuard]
@@ -68,6 +81,9 @@ const routes: Routes = [
     {
       path:"referrals",
       component:ReferralsComponent},
+      {
+        path:"transactions",
+        component:TransactionsComponent},
   {
     path: '**',
     component: LoginComponent

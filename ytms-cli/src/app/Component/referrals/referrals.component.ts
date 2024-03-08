@@ -1,5 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from 'src/app/Core/services/language.service';
 import { ReferralsService } from 'src/app/Core/services/referrals.service';
 import Swal from 'sweetalert2';
 
@@ -10,13 +12,20 @@ import Swal from 'sweetalert2';
 })
 export class ReferralsComponent {
   myReferralLink!:string;
+  sideNavStatus: boolean = false;
 
   referredPeople: { referralCode: any; email: any; status: any; referredAt: Date | null; }[] | undefined;
+  selectedLanguage!: string | null;
   ngOnInit(){
     this.getReferrals();
     this.myReferralLink=this.getMyReferralLink();
+    this.selectedLanguage = localStorage.getItem('selectedLanguage');
+    this.languageService.setDefaultLanguage();
   }
-  constructor(private referralService:ReferralsService, private datePipe: DatePipe){
+  constructor(private referralService:ReferralsService,
+               private datePipe: DatePipe,
+               private translate: TranslateService,
+               private languageService: LanguageService){
 
   }
   getReferrals() {

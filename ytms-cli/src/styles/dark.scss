@@ -3,7 +3,19 @@
     --secondary-color: #adb5bd;
   }
   /* angular-cli file: src/styles.css */
-@import "../node_modules/angular-calendar/css/angular-calendar.css";
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+
+/* angular-cli file: src/styles.css */
 body {
   font-family: 'Poppins', sans-serif;
 }
@@ -82,5 +94,5 @@ nav {
 
 .navbar-custom
 {
-  background-color:  #d2a922;
+  background-color:  #005ba3;
 }

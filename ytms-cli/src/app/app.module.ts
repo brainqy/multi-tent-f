@@ -37,7 +37,14 @@ import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TransactionsComponent } from './Component/transactions/transactions.component';
 import { SettingComponent } from './Component/setting/setting.component';
-import { ReportsComponent } from './Component/reports/reports.component';
+import { ReportsComponent } from './Component/feedback/reports/reports.component';
+import { ReportFormComponent } from './Component/feedback/report-form/report-form.component';
+import { InterviewMatcherComponent } from './Component/interview-matcher/interview-matcher.component';
+import { NgCircleProgressModule } from "ng-circle-progress";
+import { ForumListComponent } from './Component/forum/forum-list/forum-list.component';
+import { ForumComponent } from './Component/forum/forum/forum.component';
+import { StarRatingComponent } from './Component/feedback/star-rating/star-rating.component';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -68,6 +75,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     TransactionsComponent,
     SettingComponent,
     ReportsComponent,
+    ReportFormComponent,
+    InterviewMatcherComponent,
+    ForumComponent,
+    ForumListComponent,
+    StarRatingComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +87,21 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      backgroundColor: "teal",
+      backgroundPadding: 8,
+      radius: 60,
+      space: -15,
+      maxPercent: 100,
+      unitsColor: "#ffffff",
+      outerStrokeWidth: 7.5,
+      outerStrokeColor: "white",
+      innerStrokeColor: "teal",
+      innerStrokeWidth: 3,
+      titleColor: "#ffffff",
+      subtitleColor: "#ffffff"
+    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

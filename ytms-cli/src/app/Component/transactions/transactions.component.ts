@@ -9,6 +9,7 @@ import { IcsRequest, TransactionService } from 'src/app/Core/services/transactio
 export class TransactionsComponent {
   transactions: any;
   sideNavStatus: boolean = false;
+  userBalance!: any;
    // Prepare the data required by the service
 
   constructor(private transactionService:TransactionService){
@@ -29,6 +30,7 @@ export class TransactionsComponent {
   }
   getCurrentUserBalance(){
     this.transactionService.getUserBalance().subscribe((res)=>{
+      this.userBalance=res;
 console.log("Userbalance",res);
     })
   }

@@ -44,3 +44,60 @@ app-requester-sidebar {
     width: calc(100% - 250px);
     transition: width 1s linear, left 1s linear;;
 }
+.container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .left-column, .middle-column, .right-column {
+    border-radius: 10px;
+  }
+  
+  .left-column {
+    flex: 15%;
+    background-color: #ccc;
+    margin-right: 1%;
+    padding: 20px;
+  }
+  
+  .middle-column {
+    flex: 60%;
+   
+    margin: 0 1%;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .right-column {
+    flex: 15%;
+    background-color: #ccc;
+    margin-left: 1%;
+    padding: 20px;
+  }
+  
+  .recommendation-row, .upcoming-events-row {
+    margin-bottom: 20px;
+    border-radius: 10px; /* Add rounded corners */
+    padding: 30px; /* Add padding */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for separation */
+  }
+  
+  .recommendation-row {
+    background-color: #e0e0e0; /* Add background color for recommendation block */
+  }
+  
+  .upcoming-events-row {
+    background-color: #f9f5f5; /* Add background color for upcoming events block */
+  }
+  
+  .banner-row {
+    margin-bottom: 20px;
+    border-radius: 20px;
+    overflow: hidden; /* Ensure image does not overflow */
+  }
+  
+  .banner-row img {
+    width: 100%; /* Adjust image width to fill the container */
+    border-radius: 20px; /* Add rounded corners to the image */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for separation */
+  }

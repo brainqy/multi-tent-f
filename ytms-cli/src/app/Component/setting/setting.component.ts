@@ -12,16 +12,20 @@ export class SettingComponent {
  // themes: string[];
  themes: string[] = ['light', 'dark'];
 
-  constructor(private themeService: ThemeService) {
+  constructor(private themeService: ThemeService,private theme: ThemeService) {
     const selectedTheme = localStorage.getItem('selectedTheme');
     this.themes = this.themes;
     console.log("this.themes",this.themes);
   }
 
-  applyTheme(): void {
-    this.themeService.setTheme(this.selectedTheme);
-    // Logic to switch theme based on selectedTheme value
-    // You can call your theme service or set CSS variables here
+ngOnInit(): void {
 }
 
+public switchTheme(): void {
+  if (this.theme.current === 'light') {
+      this.theme.current = 'dark';
+  } else {
+      this.theme.current = 'light';
+  }
+}
 }

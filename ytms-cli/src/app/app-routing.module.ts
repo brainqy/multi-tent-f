@@ -16,7 +16,11 @@ import { MyOrgComponent } from './Component/my-org/my-org.component';
 import { ReferralsComponent } from './Component/referrals/referrals.component';
 import { TransactionsComponent } from './Component/transactions/transactions.component';
 import { SettingComponent } from './Component/setting/setting.component';
-import { ReportsComponent } from './Component/reports/reports.component';
+import { ReportsComponent } from './Component/feedback/reports/reports.component';
+import { InterviewMatcherComponent } from './Component/interview-matcher/interview-matcher.component';
+import { ForumComponent } from './Component/forum/forum/forum.component';
+import { ForumListComponent } from './Component/forum/forum-list/forum-list.component';
+
 
 const routes: Routes = [
   {
@@ -50,6 +54,21 @@ const routes: Routes = [
   {
     path: "requester-home",
     component: RequesterHomeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "forum/:id",
+    component: ForumComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "forum-list",
+    component: ForumListComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "matcher",
+    component: InterviewMatcherComponent,
     canActivate: [AuthGuard]
   },
   {

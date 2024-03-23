@@ -51,6 +51,7 @@ height: 100%;
     padding-top: 10px;
   }
   .search-box {
+    padding-bottom: 10px;
     display: flex;
     align-items: center; /* Vertically center the items */
   }
